@@ -1,35 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OMDY — Protos</title>
-<style>
-  :root { color-scheme: light dark; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; max-width: 720px; margin: 4rem auto; padding: 0 1.25rem; line-height: 1.55; }
-  h1 { font-weight: 600; letter-spacing: -0.01em; }
-  ul { list-style: none; padding: 0; }
-  li { padding: 0.65rem 0; border-bottom: 1px solid rgba(127,127,127,0.18); }
-  a { text-decoration: none; color: inherit; display: flex; justify-content: space-between; gap: 1rem; }
-  a:hover { color: #0a66c2; }
-  .id { opacity: 0.5; font-variant-numeric: tabular-nums; font-size: 0.85em; }
-  footer { margin-top: 3rem; opacity: 0.6; font-size: 0.85em; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OMDY — Prototypes clients</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #FAFAFA; --white: #FFFFFF; --ink: #1A1A1A; --ink-soft: #4A4A4A;
+      --muted: #8A8A8A; --border: #E8E8E8; --sand: #D4B896; --terra: #E07B54;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+    }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 80px 32px 120px; }
+    header { margin-bottom: 56px; }
+    .eyebrow { font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--terra); font-weight: 500; margin-bottom: 12px; }
+    h1 { font-family: var(--font-display); font-size: 2.75rem; line-height: 1.15; margin-bottom: 14px; }
+    .lede { font-size: 1.1rem; color: var(--ink-soft); max-width: 640px; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+    .card { display: block; text-decoration: none; color: inherit; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 28px 28px 24px; transition: transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out; }
+    .card:hover { transform: translateY(-3px); border-color: var(--sand); box-shadow: 0 12px 32px rgba(26,26,26,.08); }
+    .card .name { font-family: var(--font-display); font-size: 1.4rem; line-height: 1.2; margin-bottom: 8px; color: var(--ink); }
+    .card .meta { font-size: .85rem; color: var(--muted); margin-bottom: 18px; display: flex; gap: 10px; align-items: center; }
+    .tag { display: inline-block; padding: 3px 10px; font-size: .72rem; letter-spacing: .04em; border-radius: 999px; background: #F7EFE6; color: #8A5A2A; }
+    .tag.hg { background: #1A1A1A; color: #EDD9C4; }
+    .card .arrow { font-size: .85rem; color: var(--terra); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+    footer { margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--border); font-size: .85rem; color: var(--muted); }
+    footer a { color: var(--ink-soft); }
+    @media (max-width: 600px) { .wrap { padding: 48px 20px 80px; } h1 { font-size: 2rem; } }
+  </style>
 </head>
 <body>
-  <h1>OMDY — Protos clients</h1>
-  <p>Démonstrations hébergées des protos générés par OMDY.</p>
-  <ul>
-    <li><a href="lead_20260412_001/"><span>Restaurant Ksar Essaoussan</span><span class="id">001</span></a></li>
-    <li><a href="lead_20260412_002/"><span>Restaurant Dar Zitoun</span><span class="id">002</span></a></li>
-    <li><a href="lead_20260412_003/"><span>Cafe Restaurant Atlas</span><span class="id">003</span></a></li>
-    <li><a href="lead_20260412_004/"><span>Restaurant Chez Driss</span><span class="id">004</span></a></li>
-    <li><a href="lead_20260412_005/"><span>Pizzeria Venezia</span><span class="id">005</span></a></li>
-    <li><a href="lead_20260412_006/"><span>Restaurant Nomad</span><span class="id">006</span></a></li>
-    <li><a href="lead_20260412_007/"><span>Restaurant Terrasse des Epices</span><span class="id">007</span></a></li>
-    <li><a href="lead_20260412_008/"><span>Restaurant Al Fassia Guéliz</span><span class="id">008</span></a></li>
-    <li><a href="lead_20260412_010/"><span>Restaurant Argana</span><span class="id">010</span></a></li>
-  </ul>
-  <footer>Campagne 2026-05-23 — v4 contemporary-minimal</footer>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">OMDY · Prototypes</div>
+      <h1>Aperçus restaurants — Marrakech</h1>
+      <p class="lede">Maquettes statiques produites pour démonstration. Chaque page est une proposition de site complet, adaptée au positionnement de l'établissement.</p>
+    </header>
+    <div class="grid">
+      <a class="card" href="./chez-driss/"><div class="name">Restaurant Chez Driss</div><div class="meta"><span class="tag hg">Haut de gamme</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./nomad/"><div class="name">Restaurant Nomad</div><div class="meta"><span class="tag hg">Haut de gamme</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./terrasse-des-epices/"><div class="name">Terrasse des Épices</div><div class="meta"><span class="tag hg">Haut de gamme</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./al-fassia-gueliz/"><div class="name">Al Fassia Guéliz</div><div class="meta"><span class="tag hg">Haut de gamme</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./argana/"><div class="name">Restaurant Argana</div><div class="meta"><span class="tag hg">Haut de gamme</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./ksar-essaoussan/"><div class="name">Ksar Essaoussan</div><div class="meta"><span class="tag">Standard</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./dar-zitoun/"><div class="name">Dar Zitoun</div><div class="meta"><span class="tag">Standard</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./cafe-atlas/"><div class="name">Café Restaurant Atlas</div><div class="meta"><span class="tag">Standard</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+      <a class="card" href="./pizzeria-venezia/"><div class="name">Pizzeria Venezia</div><div class="meta"><span class="tag">Standard</span><span>Marrakech</span></div><span class="arrow">Voir la maquette →</span></a>
+    </div>
+    <footer>OMDY · prototypes générés le 2026-05-23 — <a href="./MAPPING.md">mapping</a></footer>
+  </div>
 </body>
 </html>
